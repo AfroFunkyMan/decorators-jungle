@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {FakeService} from './fake.service';
+import {constructorDecorator} from './notifier/notifier.decorator';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'decorators-jungle';
+
+  result$ = this.fakeService.fetch();
+
+  constructor(@constructorDecorator('fetch') private fakeService: FakeService) {
+
+  }
+
 }

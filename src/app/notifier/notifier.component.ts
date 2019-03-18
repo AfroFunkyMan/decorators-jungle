@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import {NotifierService} from './notifier.service';
 
 @Component({
   selector: 'app-notifier',
   templateUrl: './notifier.component.html',
   styleUrls: ['./notifier.component.scss']
 })
-export class NotifierComponent implements OnInit {
+export class NotifierComponent {
 
-  constructor() { }
+  showing$ = this.notifierService.showing;
 
-  ngOnInit() {
-  }
+  constructor(private notifierService: NotifierService) {}
 
 }
